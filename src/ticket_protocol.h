@@ -18,7 +18,6 @@ typedef struct {
 typedef struct {
     protocol_state state;
     int8_t total_sections;
-    int8_t total_tickets;
     int8_t curr_section;
     int8_t curr_ticket;
     ticket_section *sections;

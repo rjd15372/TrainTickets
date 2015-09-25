@@ -19,16 +19,19 @@ ticket_protocol *init_protocol() {
     ticket_protocol *prt = (ticket_protocol *) malloc(sizeof(ticket_protocol));
     prt->state = INIT;
     prt->total_sections = 0;
-    prt->total_tickets = 0;
     prt->curr_section = 0;
     prt->curr_ticket = 0;
     prt->sections = NULL;
+
+    APP_LOG(APP_LOG_LEVEL_INFO, "%s","TICKET PROTOCOL ALLOCATED");
+
     return prt;
 }
 
 
 
 void start_protocol(ticket_protocol *prt) {
+
     DictionaryIterator *iterator;
 
     app_message_outbox_begin(&iterator);
@@ -66,10 +69,6 @@ int handle_init_message(ticket_protocol *prt, DictionaryIterator *iterator) {
     if (tuple == NULL) return -2;
     prt->total_sections = tuple->value->int8;
 
-    tuple = dict_find(iterator, 2);
-    if (tuple == NULL) return -2;
-    prt->total_tickets = tuple->value->int8;
-
     prt->sections = (ticket_section *)malloc(sizeof(ticket_section)*prt->total_sections);
     memset(prt->sections, 0, sizeof(ticket_section)*prt->total_sections);
 
@@ -106,7 +105,7 @@ int handle_running_message(ticket_protocol *prt, DictionaryIterator *iterator) {
     int sent_tickets = tuple->value->int8;
 
     int n = 0;
-    uint32_t key_offset = 3;
+    uint32_t key_offset = 4;
 
     while(n < sent_tickets) {
         ticket_info *ticket = &section->tickets[prt->curr_ticket];
@@ -128,7 +127,7 @@ int handle_running_message(ticket_protocol *prt, DictionaryIterator *iterator) {
         if (tuple == NULL) return -2;
         int seat = tuple->value->int8;
 
-        snprintf(ticket->seat, 32, "Car:%d  Lug:%d", car, seat);
+        snprintf(ticket->seat, 32, "Car:%02d    Lug:%02d", car, seat);
 
         prt->curr_ticket++;
         n++;

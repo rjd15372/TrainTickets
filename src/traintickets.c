@@ -2,7 +2,7 @@
 
 #include "ticket_protocol.h"
 
-ticket_protocol *protocol;
+ticket_protocol *protocol = NULL;
 
 static Window *window;
 static TextLayer *text_layer;
@@ -14,6 +14,10 @@ static uint16_t menu_get_num_sections_callback(MenuLayer *menu_layer, void *data
 }
 
 static uint16_t menu_get_num_rows_callback(MenuLayer *menu_layer, uint16_t section_index, void *data) {
+
+    if (protocol->total_sections == 0)
+        return 0;
+
     return protocol->sections[section_index].num_tickets;
 }
 
@@ -104,6 +108,7 @@ static void main_window_load(Window *window) {
     // Now we prepare to initialize the menu layer
     Layer *window_layer = window_get_root_layer(window);
     GRect bounds = layer_get_frame(window_layer);
+
 
     s_menu_layer = menu_layer_create(bounds);
     menu_layer_set_callbacks(s_menu_layer, NULL, (MenuLayerCallbacks) {
