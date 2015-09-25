@@ -1,20 +1,24 @@
 {
-    "appKeys": {},
-    "capabilities": [
-        ""
-    ],
-    "companyName": "rdias",
-    "longName": "Train Tickets",
-    "projectType": "native",
-    "resources": {
-        "media": []
-    },
-    "sdkVersion": "2",
-    "shortName": "Train Tickets",
-    "uuid": "2ad16ed6-9ae2-4f05-a458-f8d35e403b2f",
-    "versionCode": 1,
-    "versionLabel": "0.1",
-    "watchapp": {
-        "watchface": false
-    }
+  "appKeys": {},
+  "capabilities": [
+    ""
+  ],
+  "companyName": "rdias",
+  "longName": "Train Tickets",
+  "projectType": "native",
+  "resources": {
+    "media": []
+  },
+  "sdkVersion": "3",
+  "shortName": "Train Tickets",
+  "uuid": "2ad16ed6-9ae2-4f05-a458-f8d35e403b2f",
+  "versionCode": 1,
+  "versionLabel": "0.1",
+  "watchapp": {
+    "watchface": false
+  },
+  "targetPlatforms": [
+    "aplite",
+    "basalt"
+  ]
 }
