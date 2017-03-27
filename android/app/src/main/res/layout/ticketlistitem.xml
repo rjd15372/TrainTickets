@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Grandola -> Entrecampos"
+        android:textColor="@color/textColorPrimary"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleView"
+        android:text="Segunda-Feira, 9 de Setembro, 2015"
+        android:layout_alignLeft="@id/titleView"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/scheduleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateView"
+        android:layout_marginBottom="10dp"
+        android:layout_alignLeft="@id/titleView"
+        android:text="Partida: 08:54 Chegada: 09:56"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/carView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/titleView"
+        android:layout_below="@id/titleView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Car: 04"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/seatView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carView"
+        android:layout_alignRight="@id/carView"
+        android:textColor="@color/textColorPrimary"
+        android:text="Lug: 72"
+        android:textSize="15sp"/>
+</RelativeLayout>
